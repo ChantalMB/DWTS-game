@@ -31,6 +31,25 @@
 <<next 2s>>
 <p>Use the ACT UP handout to evaluate the information that you have. Be ready to share your evaluation with the other households [[after your kitchen table discussion.|LunchtimeReports]]</p>
 
+<<set _seconds to 900>>
+<b>Countdown</b> <span id="countdown">15:00 remaining</span>!
+<<silently>>
+	<<repeat 1s>>
+		<<set _seconds to _seconds - 1>>
+		<<if _seconds gt 0>>
+            <<set _min to Math.trunc(_seconds / 60) >>
+            <<set _sec to Math.trunc(_seconds % 60) >>
+            <<if String(_sec).length lt 2>>
+                <<set _sec to "0" + String(_sec) >>
+            <</if>>
+			<<replace "#countdown">>_min:_sec remaining<</replace>>
+		<<else>>
+			<<replace "#countdown">>Too Late<</replace>>
+			/* do something useful here */
+			<<stop>>
+		<</if>>
+	<</repeat>>
+<</silently>>
 <</timed>>
 <</nobr>>
 
@@ -62,6 +81,26 @@
 </ul>
 
 <p>Be ready to [[share your evaluation with the other households.|Greenep]]</p>
+
+<<set _seconds to 900>>
+<b>Countdown</b> <span id="countdown">15:00 remaining</span>!
+<<silently>>
+	<<repeat 1s>>
+		<<set _seconds to _seconds - 1>>
+		<<if _seconds gt 0>>
+            <<set _min to Math.trunc(_seconds / 60) >>
+            <<set _sec to Math.trunc(_seconds % 60) >>
+            <<if String(_sec).length lt 2>>
+                <<set _sec to "0" + String(_sec) >>
+            <</if>>
+			<<replace "#countdown">>_min:_sec remaining<</replace>>
+		<<else>>
+			<<replace "#countdown">>Too Late<</replace>>
+			/* do something useful here */
+			<<stop>>
+		<</if>>
+	<</repeat>>
+<</silently>>
 <</timed>>
 <</nobr>>
 
@@ -89,5 +128,24 @@
 <<next 3s>>
 <p>Be ready to [[share your evaluation with the other households.|FinalDecisions]]</p>
 
+<<set _seconds to 900>>
+<b>Countdown</b> <span id="countdown">15:00 remaining</span>!
+<<silently>>
+	<<repeat 1s>>
+		<<set _seconds to _seconds - 1>>
+		<<if _seconds gt 0>>
+            <<set _min to Math.trunc(_seconds / 60) >>
+            <<set _sec to Math.trunc(_seconds % 60) >>
+            <<if String(_sec).length lt 2>>
+                <<set _sec to "0" + String(_sec) >>
+            <</if>>
+			<<replace "#countdown">>_min:_sec remaining<</replace>>
+		<<else>>
+			<<replace "#countdown">>Too Late<</replace>>
+			/* do something useful here */
+			<<stop>>
+		<</if>>
+	<</repeat>>
+<</silently>>
 <</timed>>
 <</nobr>>

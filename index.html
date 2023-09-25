@@ -119,22 +119,11 @@ a:hover {
   color: #ebe2d4;
 }
 
-@keyframes glow {
-  from {
-    text-shadow: 0 0 10px #fff;
-  }
-  to {
-    text-shadow: 0 0 15px #fff;
-  }
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0%;
-  }
-  100% {
-    opacity: 100%;
-  }
+.divider {
+  width: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #ui-bar {
@@ -147,12 +136,436 @@ a:hover {
 
 .typewriter {
   font-family: 'Courier Prime', monospace;
+  font-size: 1.5em;
 }
 
 .fade-text {
   animation-name: fadeIn;
   animation-duration: 1s;
 }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+/* teacup animation */
+
+.teacup-container {
+  position: fixed;
+  bottom: 15px;
+  left: 7vw;
+
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.teacup {
+  z-index: 5;
+  color: antiquewhite;
+  width: 275px;
+  grid-area: 1 / 1 / 6 / 6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.vapour {
+  z-index: 1;
+  grid-area: 1 / 1 / 6 / 6;
+  display: flex;
+  align-items: center;
+  padding-left: 61px;
+}
+
+.vapour span {
+  display: block;
+  position: relative;
+  margin: 0 2px 50px;
+  bottom: 25px;
+  height: 120px;
+  min-width: 3.5px;
+  background: whitesmoke;
+  border-radius: 50%;
+
+  animation: vapour 5s linear infinite;
+  animation-delay: calc(var(--i) * -0.5s);
+  opacity: 0;
+  filter: blur(9px);
+}
+
+@keyframes vapour {
+  0% {
+    transform: translateY(0) scaleX(1);
+    opacity: 0;
+  } 15% {
+    opacity: 0.5;
+  } 50% {
+    transform: translateY(-150px) scaleX(5);
+  } 95% {
+    opacity: 0;
+  } 100% {
+    transform: translateY(-300px) scaleX(10);
+  }
+}
+
+/* bike animation adapted from: https://codepen.io/lucawater/pen/VwQVyj */
+
+@keyframes wheelspin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes floor {
+  to {
+    background-position-x: 100%;
+  }
+}
+
+@keyframes pedalstem-front {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pedalstem-back {
+  from {
+    transform: rotate(-180deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes pedalbase-front {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes pedalbase-back {
+  from {
+    transform: rotate(180deg);
+  }
+  to {
+    transform: rotate(-180deg);
+  }
+}
+
+@keyframes riding {
+  from {
+    transform: translateX(-250%);
+  }
+  to {
+    transform: translateX(250%);
+    display: none;
+  }
+}
+
+.bike {
+  width: 600px;
+  height: 400px;
+  margin: auto;
+  margin-top: 368px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  
+  animation-name: riding;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.bike .part {
+  position: absolute;
+}
+
+.frame .bar {
+  width: 12px;
+  position: absolute;
+  background: rgb(177, 53, 53);
+}
+.frame .bar.left-top {
+  width: 10px;
+  height: 186px;
+  margin-left: 128px;
+  margin-top: 110px;
+  transform: rotate(37deg);
+}
+.frame .bar.left-bottom {
+  width: 8px;
+  margin-left: 149px;
+  margin-top: 203px;
+  height: 170px;
+  transform: rotate(-82deg);
+}
+.frame .bar.left {
+  height: 230px;
+  margin-left: 200px;
+  margin-top: 80px;
+  transform: rotate(-15deg);
+}
+.frame .bar.top {
+  height: 224px;
+  margin-left: 282px;
+  margin-top: -10px;
+  transform: rotate(90deg);
+}
+.frame .bar.bottom {
+  margin-left: 317px;
+  margin-top: 87px;
+  height: 250px;
+  transform: rotate(45deg);
+}
+.frame .bar.right {
+  height: 230px;
+  margin-left: 421px;
+  margin-top: 60px;
+  transform: rotate(-19deg);
+}
+
+.saddle {
+  margin-left: 184px;
+}
+.saddle .sit-here {
+  height: 0;
+  width: 10px;
+  position: absolute;
+  border-bottom: 110px solid #3a2317;
+  border-left: 0px solid transparent;
+  border-right: 22px solid transparent;
+  border-radius: 10px 0 10px 0;
+  margin-top: -20px;
+  margin-left: -35px;
+  transform: rotate(98deg);
+}
+.saddle .saddlepen {
+  width: 10px;
+  height: 200px;
+  margin-top: 30px;
+  position: absolute;
+  background: #f4decb;
+  transform: rotate(-16deg);
+}
+
+.wheel {
+  width: 200px;
+  height: 200px;
+  margin-top: 160px;
+  border-radius: 100%;
+  border: 15px solid #f4decb;
+  box-shadow: 0 0 0 10px #a87e62;
+  animation-name: wheelspin;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.wheel.left {
+  margin-left: -35px;
+}
+.wheel.right {
+  margin-left: 348px;
+}
+.wheel .spoke {
+  width: 2px;
+  height: 200px;
+  margin-left: 98px;
+  position: absolute;
+  background: #f4decb;
+}
+.wheel .spoke:nth-child(2) {
+  transform: rotate(30deg);
+}
+.wheel .spoke:nth-child(3) {
+  transform: rotate(60deg);
+}
+.wheel .spoke:nth-child(4) {
+  transform: rotate(90deg);
+}
+.wheel .spoke:nth-child(5) {
+  transform: rotate(120deg);
+}
+.wheel .spoke:nth-child(6) {
+  transform: rotate(150deg);
+}
+.wheel .spoke:nth-child(7) {
+  transform: rotate(180deg);
+}
+.wheel .spoke:nth-child(8) {
+  transform: rotate(210deg);
+}
+
+.axis {
+  width: 25px;
+  height: 25px;
+  margin-top: 265px;
+  position: absolute;
+  background: #a87e62;
+  border-radius: 100%;
+}
+.axis.left {
+  margin-left: 67px;
+}
+.axis.right {
+  margin-left: 451px;
+}
+
+.handlebar .stem {
+  width: 10px;
+  height: 200px;
+  margin-top: 45px;
+  margin-left: 412px;
+  position: absolute;
+  background: #f4decb;
+  transform: rotate(-19deg);
+}
+.handlebar .connector {
+  width: 20px;
+  height: 20px;
+  margin-left: 374px;
+  margin-top: 40px;
+  transform: rotate(-19deg);
+  background: #f4decb;
+}
+.handlebar .prehandle {
+  width: 15px;
+  height: 40px;
+  margin-left: 394px;
+  margin-top: -45px;
+  transform: rotate(42deg);
+  background: #f4decb;
+}
+.handlebar .handle {
+  width: 25px;
+  height: 25px;
+  margin-left: 400px;
+  margin-top: -45px;
+  position: absolute;
+  background: #3a2317;
+  border-radius: 100%;
+}
+
+.pedals {
+  margin-left: 227px;
+  margin-top: 295px;
+}
+.pedals * {
+  position: absolute;
+}
+.pedals .inside {
+  width: 9px;
+  height: 9px;
+  background: #a87e62;
+  border-radius: 100%;
+  margin-left: 3.5px;
+  margin-top: 2.4px;
+}
+.pedals .outside {
+  width: 80px;
+  height: 80px;
+  margin-top: -39px;
+  margin-left: -37px;
+  border: 5px solid #3a2317;
+  border-radius: 100%;
+}
+.pedals .pedalstem {
+  width: 12px;
+  height: 80px;
+  margin-left: 2px;
+  background: #f4decb;
+  border-radius: 10px 10px 0 0;
+  transform-origin: 6px 7px;
+}
+.pedals .pedalstem.front {
+  animation-name: pedalstem-front;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.pedals .pedalstem.back {
+  animation-name: pedalstem-back;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  transform: rotate(180deg);
+}
+.pedals .pedalbase {
+  width: 40px;
+  height: 15px;
+  margin-top: 70px;
+  margin-left: -12px;
+  background: #3a2317;
+}
+.pedals .pedalbase.front {
+  animation-name: pedalbase-front;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.pedals .pedalbase.back {
+  animation-name: pedalbase-back;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.inside {
+  z-index: 6;
+}
+
+.axis {
+  z-index: 5;
+}
+
+.pedalstem.front {
+  z-index: 5;
+}
+
+.frame {
+  z-index: 4;
+}
+
+.outside {
+  z-index: 4;
+}
+
+.handlebar {
+  z-index: 3;
+}
+
+.sit-here {
+  z-index: 2;
+}
+
+.wheel {
+  z-index: 1;
+}
+
+.pedalstem.back {
+  z-index: -1;
+}
+
+/* fire animation */
 
 .pulsating-light {
   width: 1300px;
@@ -165,6 +578,16 @@ a:hover {
   border-radius: 50%;
   background: orangered;
   animation: pulsinglight 5s linear infinite alternate;
+}
+
+/* fire particle/glow effect */
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff;
+  }
+  to {
+    text-shadow: 0 0 15px #fff;
+  }
 }
 
 
@@ -180,9 +603,7 @@ a:hover {
   100% {box-shadow: 80px 150px 190px 120px orangered;} 
 }
 
-
-
-/* Adapted from CSS Particle Animation by Takeshi Kano: https://codepen.io/tonkotsuboy/pen/xaMVpo */
+/* adapted from CSS Particle Animation by Takeshi Kano: https://codepen.io/tonkotsuboy/pen/xaMVpo */
 .circle-container {
   position: absolute;
   transform: translateY(-10vh);
@@ -1663,7 +2084,7 @@ a:hover {
   width: 1px;
   height: 1px;
   animation-name: move-frames-81;
-  animation-duration: 33340ms;
+  animation-duration: a87e6240ms;
   animation-delay: 9905ms;
 }
 @keyframes move-frames-81 {
@@ -2215,7 +2636,7 @@ a:hover {
   }
 }
 .circle-container:nth-child(111) .circle {
-  animation-delay: 3334ms;
+  animation-delay: a87e624ms;
 }
 .circle-container:nth-child(112) {
   width: 6px;
@@ -3873,6 +4294,25 @@ a:hover {
 &lt;&lt;next 2s&gt;&gt;
 &lt;p&gt;Use the ACT UP handout to evaluate the information that you have. Be ready to share your evaluation with the other households [[after your kitchen table discussion.|LunchtimeReports]]&lt;/p&gt;
 
+&lt;&lt;set _seconds to 900&gt;&gt;
+&lt;b&gt;Countdown&lt;/b&gt; &lt;span id=&quot;countdown&quot;&gt;15:00 remaining&lt;/span&gt;!
+&lt;&lt;silently&gt;&gt;
+	&lt;&lt;repeat 1s&gt;&gt;
+		&lt;&lt;set _seconds to _seconds - 1&gt;&gt;
+		&lt;&lt;if _seconds gt 0&gt;&gt;
+            &lt;&lt;set _min to Math.trunc(_seconds / 60) &gt;&gt;
+            &lt;&lt;set _sec to Math.trunc(_seconds % 60) &gt;&gt;
+            &lt;&lt;if String(_sec).length lt 2&gt;&gt;
+                &lt;&lt;set _sec to &quot;0&quot; + String(_sec) &gt;&gt;
+            &lt;&lt;/if&gt;&gt;
+			&lt;&lt;replace &quot;#countdown&quot;&gt;&gt;_min:_sec remaining&lt;&lt;/replace&gt;&gt;
+		&lt;&lt;else&gt;&gt;
+			&lt;&lt;replace &quot;#countdown&quot;&gt;&gt;Too Late&lt;&lt;/replace&gt;&gt;
+			/* do something useful here */
+			&lt;&lt;stop&gt;&gt;
+		&lt;&lt;/if&gt;&gt;
+	&lt;&lt;/repeat&gt;&gt;
+&lt;&lt;/silently&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="Baileys2" tags="" position="225,100" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;p class=&quot;fade-text&quot;&gt;&#39;&#39;Robert Bailey Junior:&#39;&#39; You are the moderator for your household. Open your household locker in Brightspace so that you can guide the household in its initial discussion of the information you have about the war with Germany.&lt;/p&gt;
@@ -3900,6 +4340,26 @@ a:hover {
 &lt;/ul&gt;
 
 &lt;p&gt;Be ready to [[share your evaluation with the other households.|Greenep]]&lt;/p&gt;
+
+&lt;&lt;set _seconds to 900&gt;&gt;
+&lt;b&gt;Countdown&lt;/b&gt; &lt;span id=&quot;countdown&quot;&gt;15:00 remaining&lt;/span&gt;!
+&lt;&lt;silently&gt;&gt;
+	&lt;&lt;repeat 1s&gt;&gt;
+		&lt;&lt;set _seconds to _seconds - 1&gt;&gt;
+		&lt;&lt;if _seconds gt 0&gt;&gt;
+            &lt;&lt;set _min to Math.trunc(_seconds / 60) &gt;&gt;
+            &lt;&lt;set _sec to Math.trunc(_seconds % 60) &gt;&gt;
+            &lt;&lt;if String(_sec).length lt 2&gt;&gt;
+                &lt;&lt;set _sec to &quot;0&quot; + String(_sec) &gt;&gt;
+            &lt;&lt;/if&gt;&gt;
+			&lt;&lt;replace &quot;#countdown&quot;&gt;&gt;_min:_sec remaining&lt;&lt;/replace&gt;&gt;
+		&lt;&lt;else&gt;&gt;
+			&lt;&lt;replace &quot;#countdown&quot;&gt;&gt;Too Late&lt;&lt;/replace&gt;&gt;
+			/* do something useful here */
+			&lt;&lt;stop&gt;&gt;
+		&lt;&lt;/if&gt;&gt;
+	&lt;&lt;/repeat&gt;&gt;
+&lt;&lt;/silently&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="3" name="Baileys3" tags="" position="350,100" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;p class=&quot;fade-text&quot;&gt;&#39;&#39;Robert Bailey Junior:&#39;&#39; You are the moderator for your household. Open your household locker in Brightspace so that you can guide the household in its discussion of the information you have now.&lt;/p&gt;
@@ -3923,6 +4383,25 @@ a:hover {
 &lt;&lt;next 3s&gt;&gt;
 &lt;p&gt;Be ready to [[share your evaluation with the other households.|FinalDecisions]]&lt;/p&gt;
 
+&lt;&lt;set _seconds to 900&gt;&gt;
+&lt;b&gt;Countdown&lt;/b&gt; &lt;span id=&quot;countdown&quot;&gt;15:00 remaining&lt;/span&gt;!
+&lt;&lt;silently&gt;&gt;
+	&lt;&lt;repeat 1s&gt;&gt;
+		&lt;&lt;set _seconds to _seconds - 1&gt;&gt;
+		&lt;&lt;if _seconds gt 0&gt;&gt;
+            &lt;&lt;set _min to Math.trunc(_seconds / 60) &gt;&gt;
+            &lt;&lt;set _sec to Math.trunc(_seconds % 60) &gt;&gt;
+            &lt;&lt;if String(_sec).length lt 2&gt;&gt;
+                &lt;&lt;set _sec to &quot;0&quot; + String(_sec) &gt;&gt;
+            &lt;&lt;/if&gt;&gt;
+			&lt;&lt;replace &quot;#countdown&quot;&gt;&gt;_min:_sec remaining&lt;&lt;/replace&gt;&gt;
+		&lt;&lt;else&gt;&gt;
+			&lt;&lt;replace &quot;#countdown&quot;&gt;&gt;Too Late&lt;&lt;/replace&gt;&gt;
+			/* do something useful here */
+			&lt;&lt;stop&gt;&gt;
+		&lt;&lt;/if&gt;&gt;
+	&lt;&lt;/repeat&gt;&gt;
+&lt;&lt;/silently&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="4" name="Empeys1" tags="" position="475,100" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;p class=&quot;fade-text&quot;&gt;
@@ -3955,6 +4434,25 @@ a:hover {
 &lt;&lt;next 2s&gt;&gt;
 &lt;p&gt;Use the ACT UP handout to evaluate the information that you have. Be ready to share your evaluation with the other households [[after your kitchen table discussion.|LunchtimeReports]]&lt;/p&gt;
 
+&lt;&lt;set _seconds to 900&gt;&gt;
+&lt;b&gt;Countdown&lt;/b&gt; &lt;span id=&quot;countdown&quot;&gt;15:00 remaining&lt;/span&gt;!
+&lt;&lt;silently&gt;&gt;
+	&lt;&lt;repeat 1s&gt;&gt;
+		&lt;&lt;set _seconds to _seconds - 1&gt;&gt;
+		&lt;&lt;if _seconds gt 0&gt;&gt;
+            &lt;&lt;set _min to Math.trunc(_seconds / 60) &gt;&gt;
+            &lt;&lt;set _sec to Math.trunc(_seconds % 60) &gt;&gt;
+            &lt;&lt;if String(_sec).length lt 2&gt;&gt;
+                &lt;&lt;set _sec to &quot;0&quot; + String(_sec) &gt;&gt;
+            &lt;&lt;/if&gt;&gt;
+			&lt;&lt;replace &quot;#countdown&quot;&gt;&gt;_min:_sec remaining&lt;&lt;/replace&gt;&gt;
+		&lt;&lt;else&gt;&gt;
+			&lt;&lt;replace &quot;#countdown&quot;&gt;&gt;Too Late&lt;&lt;/replace&gt;&gt;
+			/* do something useful here */
+			&lt;&lt;stop&gt;&gt;
+		&lt;&lt;/if&gt;&gt;
+	&lt;&lt;/repeat&gt;&gt;
+&lt;&lt;/silently&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="5" name="Empeys2" tags="" position="600,100" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;p class=&quot;fade-text&quot;&gt;&#39;&#39;Rita Maloney:&#39;&#39; You are the moderator for your household. Open your household locker in Brightspace so that you can guide the household in its initial discussion of the information you have about the war with Germany.&lt;/p&gt;
@@ -3982,6 +4480,26 @@ a:hover {
 &lt;/ul&gt;
 
 &lt;p&gt;Be ready to [[share your evaluation with the other households.|Greenep]]&lt;/p&gt;
+
+&lt;&lt;set _seconds to 900&gt;&gt;
+&lt;b&gt;Countdown&lt;/b&gt; &lt;span id=&quot;countdown&quot;&gt;15:00 remaining&lt;/span&gt;!
+&lt;&lt;silently&gt;&gt;
+	&lt;&lt;repeat 1s&gt;&gt;
+		&lt;&lt;set _seconds to _seconds - 1&gt;&gt;
+		&lt;&lt;if _seconds gt 0&gt;&gt;
+            &lt;&lt;set _min to Math.trunc(_seconds / 60) &gt;&gt;
+            &lt;&lt;set _sec to Math.trunc(_seconds % 60) &gt;&gt;
+            &lt;&lt;if String(_sec).length lt 2&gt;&gt;
+                &lt;&lt;set _sec to &quot;0&quot; + String(_sec) &gt;&gt;
+            &lt;&lt;/if&gt;&gt;
+			&lt;&lt;replace &quot;#countdown&quot;&gt;&gt;_min:_sec remaining&lt;&lt;/replace&gt;&gt;
+		&lt;&lt;else&gt;&gt;
+			&lt;&lt;replace &quot;#countdown&quot;&gt;&gt;Too Late&lt;&lt;/replace&gt;&gt;
+			/* do something useful here */
+			&lt;&lt;stop&gt;&gt;
+		&lt;&lt;/if&gt;&gt;
+	&lt;&lt;/repeat&gt;&gt;
+&lt;&lt;/silently&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="6" name="Empeys3" tags="" position="725,100" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;p class=&quot;fade-text&quot;&gt;&#39;&#39;Rita Maloney:&#39;&#39; You are the moderator for your household. Open your household locker in Brightspace so that you can guide the household in its discussion of the information now have.&lt;/p&gt;
@@ -4005,6 +4523,25 @@ a:hover {
 &lt;&lt;next 3s&gt;&gt;
 &lt;p&gt;Be ready to [[share your evaluation with the other households.|FinalDecisions]]&lt;/p&gt;
 
+&lt;&lt;set _seconds to 900&gt;&gt;
+&lt;b&gt;Countdown&lt;/b&gt; &lt;span id=&quot;countdown&quot;&gt;15:00 remaining&lt;/span&gt;!
+&lt;&lt;silently&gt;&gt;
+	&lt;&lt;repeat 1s&gt;&gt;
+		&lt;&lt;set _seconds to _seconds - 1&gt;&gt;
+		&lt;&lt;if _seconds gt 0&gt;&gt;
+            &lt;&lt;set _min to Math.trunc(_seconds / 60) &gt;&gt;
+            &lt;&lt;set _sec to Math.trunc(_seconds % 60) &gt;&gt;
+            &lt;&lt;if String(_sec).length lt 2&gt;&gt;
+                &lt;&lt;set _sec to &quot;0&quot; + String(_sec) &gt;&gt;
+            &lt;&lt;/if&gt;&gt;
+			&lt;&lt;replace &quot;#countdown&quot;&gt;&gt;_min:_sec remaining&lt;&lt;/replace&gt;&gt;
+		&lt;&lt;else&gt;&gt;
+			&lt;&lt;replace &quot;#countdown&quot;&gt;&gt;Too Late&lt;&lt;/replace&gt;&gt;
+			/* do something useful here */
+			&lt;&lt;stop&gt;&gt;
+		&lt;&lt;/if&gt;&gt;
+	&lt;&lt;/repeat&gt;&gt;
+&lt;&lt;/silently&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="7" name="Engels1" tags="" position="850,100" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;p class=&quot;fade-text&quot;&gt;
@@ -4037,6 +4574,25 @@ a:hover {
 &lt;&lt;next 2s&gt;&gt;
 &lt;p&gt;Use the ACT UP handout to evaluate the information that you have. Be ready to share your evaluation with the other households [[after your kitchen table discussion.|LunchtimeReports]]&lt;/p&gt;
 
+&lt;&lt;set _seconds to 900&gt;&gt;
+&lt;b&gt;Countdown&lt;/b&gt; &lt;span id=&quot;countdown&quot;&gt;15:00 remaining&lt;/span&gt;!
+&lt;&lt;silently&gt;&gt;
+	&lt;&lt;repeat 1s&gt;&gt;
+		&lt;&lt;set _seconds to _seconds - 1&gt;&gt;
+		&lt;&lt;if _seconds gt 0&gt;&gt;
+            &lt;&lt;set _min to Math.trunc(_seconds / 60) &gt;&gt;
+            &lt;&lt;set _sec to Math.trunc(_seconds % 60) &gt;&gt;
+            &lt;&lt;if String(_sec).length lt 2&gt;&gt;
+                &lt;&lt;set _sec to &quot;0&quot; + String(_sec) &gt;&gt;
+            &lt;&lt;/if&gt;&gt;
+			&lt;&lt;replace &quot;#countdown&quot;&gt;&gt;_min:_sec remaining&lt;&lt;/replace&gt;&gt;
+		&lt;&lt;else&gt;&gt;
+			&lt;&lt;replace &quot;#countdown&quot;&gt;&gt;Too Late&lt;&lt;/replace&gt;&gt;
+			/* do something useful here */
+			&lt;&lt;stop&gt;&gt;
+		&lt;&lt;/if&gt;&gt;
+	&lt;&lt;/repeat&gt;&gt;
+&lt;&lt;/silently&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="8" name="Engels2" tags="" position="975,100" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;p class=&quot;fade-text&quot;&gt;&#39;&#39;Richard Jones:&#39;&#39; You are the moderator for your household. Open your household locker in Brightspace so that you can guide the household in its initial discussion of the information you have about the war with Germany.&lt;/p&gt;
@@ -4064,6 +4620,26 @@ a:hover {
 &lt;/ul&gt;
 
 &lt;p&gt;Be ready to [[share your evaluation with the other households.|Greenep]]&lt;/p&gt;
+
+&lt;&lt;set _seconds to 900&gt;&gt;
+&lt;b&gt;Countdown&lt;/b&gt; &lt;span id=&quot;countdown&quot;&gt;15:00 remaining&lt;/span&gt;!
+&lt;&lt;silently&gt;&gt;
+	&lt;&lt;repeat 1s&gt;&gt;
+		&lt;&lt;set _seconds to _seconds - 1&gt;&gt;
+		&lt;&lt;if _seconds gt 0&gt;&gt;
+            &lt;&lt;set _min to Math.trunc(_seconds / 60) &gt;&gt;
+            &lt;&lt;set _sec to Math.trunc(_seconds % 60) &gt;&gt;
+            &lt;&lt;if String(_sec).length lt 2&gt;&gt;
+                &lt;&lt;set _sec to &quot;0&quot; + String(_sec) &gt;&gt;
+            &lt;&lt;/if&gt;&gt;
+			&lt;&lt;replace &quot;#countdown&quot;&gt;&gt;_min:_sec remaining&lt;&lt;/replace&gt;&gt;
+		&lt;&lt;else&gt;&gt;
+			&lt;&lt;replace &quot;#countdown&quot;&gt;&gt;Too Late&lt;&lt;/replace&gt;&gt;
+			/* do something useful here */
+			&lt;&lt;stop&gt;&gt;
+		&lt;&lt;/if&gt;&gt;
+	&lt;&lt;/repeat&gt;&gt;
+&lt;&lt;/silently&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="9" name="Engels3" tags="" position="1100,100" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;p class=&quot;fade-text&quot;&gt;&#39;&#39;Richard Jones:&#39;&#39; You are the moderator for your household. Open your household locker in Brightspace so that you can guide the household in its discussion of the information now have.&lt;/p&gt;
@@ -4087,6 +4663,25 @@ a:hover {
 &lt;&lt;next 3s&gt;&gt;
 &lt;p&gt;Be ready to [[share your evaluation with the other households.|FinalDecisions]]&lt;/p&gt;
 
+&lt;&lt;set _seconds to 900&gt;&gt;
+&lt;b&gt;Countdown&lt;/b&gt; &lt;span id=&quot;countdown&quot;&gt;15:00 remaining&lt;/span&gt;!
+&lt;&lt;silently&gt;&gt;
+	&lt;&lt;repeat 1s&gt;&gt;
+		&lt;&lt;set _seconds to _seconds - 1&gt;&gt;
+		&lt;&lt;if _seconds gt 0&gt;&gt;
+            &lt;&lt;set _min to Math.trunc(_seconds / 60) &gt;&gt;
+            &lt;&lt;set _sec to Math.trunc(_seconds % 60) &gt;&gt;
+            &lt;&lt;if String(_sec).length lt 2&gt;&gt;
+                &lt;&lt;set _sec to &quot;0&quot; + String(_sec) &gt;&gt;
+            &lt;&lt;/if&gt;&gt;
+			&lt;&lt;replace &quot;#countdown&quot;&gt;&gt;_min:_sec remaining&lt;&lt;/replace&gt;&gt;
+		&lt;&lt;else&gt;&gt;
+			&lt;&lt;replace &quot;#countdown&quot;&gt;&gt;Too Late&lt;&lt;/replace&gt;&gt;
+			/* do something useful here */
+			&lt;&lt;stop&gt;&gt;
+		&lt;&lt;/if&gt;&gt;
+	&lt;&lt;/repeat&gt;&gt;
+&lt;&lt;/silently&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="10" name="Hendersons1" tags="" position="1225,100" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;p class=&quot;fade-text&quot;&gt;
@@ -4119,6 +4714,25 @@ a:hover {
 &lt;&lt;next 2s&gt;&gt;
 &lt;p&gt;Use the ACT UP handout to evaluate the information that you have. Be ready to share your evaluation with the other households [[after your kitchen table discussion.|LunchtimeReports]]&lt;/p&gt;
 
+&lt;&lt;set _seconds to 900&gt;&gt;
+&lt;b&gt;Countdown&lt;/b&gt; &lt;span id=&quot;countdown&quot;&gt;15:00 remaining&lt;/span&gt;!
+&lt;&lt;silently&gt;&gt;
+	&lt;&lt;repeat 1s&gt;&gt;
+		&lt;&lt;set _seconds to _seconds - 1&gt;&gt;
+		&lt;&lt;if _seconds gt 0&gt;&gt;
+            &lt;&lt;set _min to Math.trunc(_seconds / 60) &gt;&gt;
+            &lt;&lt;set _sec to Math.trunc(_seconds % 60) &gt;&gt;
+            &lt;&lt;if String(_sec).length lt 2&gt;&gt;
+                &lt;&lt;set _sec to &quot;0&quot; + String(_sec) &gt;&gt;
+            &lt;&lt;/if&gt;&gt;
+			&lt;&lt;replace &quot;#countdown&quot;&gt;&gt;_min:_sec remaining&lt;&lt;/replace&gt;&gt;
+		&lt;&lt;else&gt;&gt;
+			&lt;&lt;replace &quot;#countdown&quot;&gt;&gt;Too Late&lt;&lt;/replace&gt;&gt;
+			/* do something useful here */
+			&lt;&lt;stop&gt;&gt;
+		&lt;&lt;/if&gt;&gt;
+	&lt;&lt;/repeat&gt;&gt;
+&lt;&lt;/silently&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="11" name="Hendersons2" tags="" position="100,225" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;p class=&quot;fade-text&quot;&gt;&#39;&#39;Gertrude Henderson:&#39;&#39; You are the moderator for your household. Go back to your household locker in Brightspace and share the new information that your household now has with everyone else.&lt;/p&gt;
@@ -4146,6 +4760,26 @@ a:hover {
 &lt;/ul&gt;
 
 &lt;p&gt;Be ready to [[share your evaluation with the other households.|Greenep]]&lt;/p&gt;
+
+&lt;&lt;set _seconds to 900&gt;&gt;
+&lt;b&gt;Countdown&lt;/b&gt; &lt;span id=&quot;countdown&quot;&gt;15:00 remaining&lt;/span&gt;!
+&lt;&lt;silently&gt;&gt;
+	&lt;&lt;repeat 1s&gt;&gt;
+		&lt;&lt;set _seconds to _seconds - 1&gt;&gt;
+		&lt;&lt;if _seconds gt 0&gt;&gt;
+            &lt;&lt;set _min to Math.trunc(_seconds / 60) &gt;&gt;
+            &lt;&lt;set _sec to Math.trunc(_seconds % 60) &gt;&gt;
+            &lt;&lt;if String(_sec).length lt 2&gt;&gt;
+                &lt;&lt;set _sec to &quot;0&quot; + String(_sec) &gt;&gt;
+            &lt;&lt;/if&gt;&gt;
+			&lt;&lt;replace &quot;#countdown&quot;&gt;&gt;_min:_sec remaining&lt;&lt;/replace&gt;&gt;
+		&lt;&lt;else&gt;&gt;
+			&lt;&lt;replace &quot;#countdown&quot;&gt;&gt;Too Late&lt;&lt;/replace&gt;&gt;
+			/* do something useful here */
+			&lt;&lt;stop&gt;&gt;
+		&lt;&lt;/if&gt;&gt;
+	&lt;&lt;/repeat&gt;&gt;
+&lt;&lt;/silently&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="12" name="Hendersons3" tags="" position="225,225" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;p class=&quot;fade-text&quot;&gt;&#39;&#39;Gertrude Henderson:&#39;&#39; You are the moderator for your household. Open your household locker in Brightspace so that you can guide the household in its discussion of the information now have.&lt;/p&gt;
@@ -4167,6 +4801,25 @@ a:hover {
 &lt;&lt;next 3s&gt;&gt;
 &lt;p&gt;Be ready to [[share your evaluation with the other households.|FinalDecisions]]&lt;/p&gt;
 
+&lt;&lt;set _seconds to 900&gt;&gt;
+&lt;b&gt;Countdown&lt;/b&gt; &lt;span id=&quot;countdown&quot;&gt;15:00 remaining&lt;/span&gt;!
+&lt;&lt;silently&gt;&gt;
+	&lt;&lt;repeat 1s&gt;&gt;
+		&lt;&lt;set _seconds to _seconds - 1&gt;&gt;
+		&lt;&lt;if _seconds gt 0&gt;&gt;
+            &lt;&lt;set _min to Math.trunc(_seconds / 60) &gt;&gt;
+            &lt;&lt;set _sec to Math.trunc(_seconds % 60) &gt;&gt;
+            &lt;&lt;if String(_sec).length lt 2&gt;&gt;
+                &lt;&lt;set _sec to &quot;0&quot; + String(_sec) &gt;&gt;
+            &lt;&lt;/if&gt;&gt;
+			&lt;&lt;replace &quot;#countdown&quot;&gt;&gt;_min:_sec remaining&lt;&lt;/replace&gt;&gt;
+		&lt;&lt;else&gt;&gt;
+			&lt;&lt;replace &quot;#countdown&quot;&gt;&gt;Too Late&lt;&lt;/replace&gt;&gt;
+			/* do something useful here */
+			&lt;&lt;stop&gt;&gt;
+		&lt;&lt;/if&gt;&gt;
+	&lt;&lt;/repeat&gt;&gt;
+&lt;&lt;/silently&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="13" name="Sklars1" tags="" position="350,225" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;p class=&quot;fade-text&quot;&gt;
@@ -4199,6 +4852,25 @@ a:hover {
 &lt;&lt;next 2s&gt;&gt;
 &lt;p&gt;Use the ACT UP handout to evaluate the information that you have. Be ready to share your evaluation with the other households [[after your kitchen table discussion.|LunchtimeReports]]&lt;/p&gt;
 
+&lt;&lt;set _seconds to 900&gt;&gt;
+&lt;b&gt;Countdown&lt;/b&gt; &lt;span id=&quot;countdown&quot;&gt;15:00 remaining&lt;/span&gt;!
+&lt;&lt;silently&gt;&gt;
+	&lt;&lt;repeat 1s&gt;&gt;
+		&lt;&lt;set _seconds to _seconds - 1&gt;&gt;
+		&lt;&lt;if _seconds gt 0&gt;&gt;
+            &lt;&lt;set _min to Math.trunc(_seconds / 60) &gt;&gt;
+            &lt;&lt;set _sec to Math.trunc(_seconds % 60) &gt;&gt;
+            &lt;&lt;if String(_sec).length lt 2&gt;&gt;
+                &lt;&lt;set _sec to &quot;0&quot; + String(_sec) &gt;&gt;
+            &lt;&lt;/if&gt;&gt;
+			&lt;&lt;replace &quot;#countdown&quot;&gt;&gt;_min:_sec remaining&lt;&lt;/replace&gt;&gt;
+		&lt;&lt;else&gt;&gt;
+			&lt;&lt;replace &quot;#countdown&quot;&gt;&gt;Too Late&lt;&lt;/replace&gt;&gt;
+			/* do something useful here */
+			&lt;&lt;stop&gt;&gt;
+		&lt;&lt;/if&gt;&gt;
+	&lt;&lt;/repeat&gt;&gt;
+&lt;&lt;/silently&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="14" name="Sklars2" tags="" position="475,225" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;p class=&quot;fade-text&quot;&gt;&#39;&#39;Reeta Sklar:&#39;&#39; You are the moderator for your household. Open your household locker in Brightspace so that you can guide the household in its initial discussion of the information you have about the war with Germany.&lt;/p&gt;
@@ -4226,6 +4898,26 @@ a:hover {
 &lt;/ul&gt;
 
 &lt;p&gt;Be ready to [[share your evaluation with the other households.|Greenep]]&lt;/p&gt;
+
+&lt;&lt;set _seconds to 900&gt;&gt;
+&lt;b&gt;Countdown&lt;/b&gt; &lt;span id=&quot;countdown&quot;&gt;15:00 remaining&lt;/span&gt;!
+&lt;&lt;silently&gt;&gt;
+	&lt;&lt;repeat 1s&gt;&gt;
+		&lt;&lt;set _seconds to _seconds - 1&gt;&gt;
+		&lt;&lt;if _seconds gt 0&gt;&gt;
+            &lt;&lt;set _min to Math.trunc(_seconds / 60) &gt;&gt;
+            &lt;&lt;set _sec to Math.trunc(_seconds % 60) &gt;&gt;
+            &lt;&lt;if String(_sec).length lt 2&gt;&gt;
+                &lt;&lt;set _sec to &quot;0&quot; + String(_sec) &gt;&gt;
+            &lt;&lt;/if&gt;&gt;
+			&lt;&lt;replace &quot;#countdown&quot;&gt;&gt;_min:_sec remaining&lt;&lt;/replace&gt;&gt;
+		&lt;&lt;else&gt;&gt;
+			&lt;&lt;replace &quot;#countdown&quot;&gt;&gt;Too Late&lt;&lt;/replace&gt;&gt;
+			/* do something useful here */
+			&lt;&lt;stop&gt;&gt;
+		&lt;&lt;/if&gt;&gt;
+	&lt;&lt;/repeat&gt;&gt;
+&lt;&lt;/silently&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="15" name="Sklars3" tags="" position="600,225" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;p class=&quot;fade-text&quot;&gt;&#39;&#39;Reeta Sklar:&#39;&#39; You are the moderator for your household. Open your household locker in Brightspace so that you can guide the household in its discussion of the information you have now.&lt;/p&gt;
@@ -4249,6 +4941,25 @@ a:hover {
 &lt;&lt;next 3s&gt;&gt;
 &lt;p&gt;Be ready to [[share your evaluation with the other households.|FinalDecisions]]&lt;/p&gt;
 
+&lt;&lt;set _seconds to 900&gt;&gt;
+&lt;b&gt;Countdown&lt;/b&gt; &lt;span id=&quot;countdown&quot;&gt;15:00 remaining&lt;/span&gt;!
+&lt;&lt;silently&gt;&gt;
+	&lt;&lt;repeat 1s&gt;&gt;
+		&lt;&lt;set _seconds to _seconds - 1&gt;&gt;
+		&lt;&lt;if _seconds gt 0&gt;&gt;
+            &lt;&lt;set _min to Math.trunc(_seconds / 60) &gt;&gt;
+            &lt;&lt;set _sec to Math.trunc(_seconds % 60) &gt;&gt;
+            &lt;&lt;if String(_sec).length lt 2&gt;&gt;
+                &lt;&lt;set _sec to &quot;0&quot; + String(_sec) &gt;&gt;
+            &lt;&lt;/if&gt;&gt;
+			&lt;&lt;replace &quot;#countdown&quot;&gt;&gt;_min:_sec remaining&lt;&lt;/replace&gt;&gt;
+		&lt;&lt;else&gt;&gt;
+			&lt;&lt;replace &quot;#countdown&quot;&gt;&gt;Too Late&lt;&lt;/replace&gt;&gt;
+			/* do something useful here */
+			&lt;&lt;stop&gt;&gt;
+		&lt;&lt;/if&gt;&gt;
+	&lt;&lt;/repeat&gt;&gt;
+&lt;&lt;/silently&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="16" name="StoryInit" tags="" position="725,225" size="100,100">&lt;&lt;cacheaudio &quot;kettle&quot; &quot;./assets/audio/kettle.mp3&quot;&gt;&gt;
 &lt;&lt;cacheaudio &quot;fire&quot; &quot;./assets/audio/fire.mp3&quot;&gt;&gt;
@@ -4258,13 +4969,12 @@ a:hover {
 Game design by Martha Attridge Bufton (Carleton University), based on //Making history: The breakup// by Nick Proctor (Simpson College) and adaptation by Aaron Cowan (Slippery Rock University)
 
 Web design by Chantal Brousseau and Alesya Moshchenskaya, Carleton University
-Introduction
 
-----
-
+&lt;img class=&quot;divider&quot; src=&quot;./assets/images/div-01.svg&quot;/&gt;
 This game is designed to introduce you to the process of evaluating information that includes identifying the formats, characteristics, and purposes of available information as well as matching an information need with an information source. 
 
-You will use this process in a historical scenario that takes you [[back to Manchester, England during the Christmas blitz of 1940.|StartGame]]</tw-passagedata><tw-passagedata pid="18" name="StartGame" tags="" position="975,225" size="100,100">&lt;&lt;nobr&gt;&gt;
+You will use this process in a historical scenario that takes you [[back to Manchester, England during the Christmas blitz of 1940.|StartGame]]</tw-passagedata><tw-passagedata pid="18" name="StartGame" tags="" position="975,225" size="100,100">&lt;&lt;set _vapour to [7, 12, 3, 16, 8, 14, 1, 9, 17, 5, 11, 15, 4, 6, 18, 2, 13, 10, 19]&gt;&gt;
+&lt;&lt;nobr&gt;&gt;
 &lt;&lt;audio &quot;kettle&quot; volume 0 fadeoverto 30 0.75&gt;&gt;
 
 &lt;&lt;type 90ms&gt;&gt;\
@@ -4280,6 +4990,16 @@ You will use this process in a historical scenario that takes you [[back to Manc
 &lt;&lt;next 5s&gt;&gt;
 &lt;p&gt;Before the next blackout at sunset, you have to try and [[gather more information|BackgroundKnowledge]] about the air raids and the damage that has been done to your city and neighbourhood.&lt;/p&gt;
 &lt;&lt;/timed&gt;&gt;
+
+&lt;div class=&quot;teacup-container&quot;&gt;
+    &lt;div class=&quot;vapour&quot;&gt;
+        &lt;&lt;for _i to 0; _i lt _vapour.length; _i++&gt;&gt;
+            &lt;&lt;set _style to &quot;--i:&quot;+_vapour[_i]+&quot;;&quot;&gt;&gt;
+            &lt;span @style=&quot;_style&quot;&gt;&lt;/span&gt;
+        &lt;&lt;/for&gt;&gt;
+    &lt;/div&gt;
+    &lt;img class=&quot;teacup&quot; src=&quot;./assets/images/teacup-a.svg&quot;/&gt;
+&lt;/div&gt;
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="19" name="BackgroundKnowledge" tags="" position="1100,225" size="100,100">&lt;&lt;audio &quot;kettle&quot; volume 0.75 fadeout&gt;&gt;
 &lt;&lt;nobr&gt;&gt;
 &lt;p class=&quot;fade-text&quot;&gt;In addition to the background knowledge you have about the war, you also know the following:&lt;/p&gt;
@@ -4341,8 +5061,10 @@ You will use this process in a historical scenario that takes you [[back to Manc
 &lt;&lt;next 7s&gt;&gt;
 &lt;p&gt;While each household may have these basic facts, they each have information that others may not have. Now, those who have returned from work will all share the new information that they have with their household in order to try and build a better understanding of the actual impact of the bombings and the implications of this new information for your ultimate decision.&lt;/p&gt;
 
-&lt;&lt;next 5s&gt;&gt;
 &lt;p&gt;More tea has been brewed to accompany your lunch.&lt;/p&gt;
+
+&lt;&lt;next 5s&gt;&gt;
+&lt;img class=&quot;divider&quot; src=&quot;./assets/images/div-05.svg&quot;/&gt;
 
 &lt;p&gt;Use the ACT UP handout to evaluate the additional information that you have now and use the map of the city that is in your household to visualize this information to better see what is happening.&lt;/p&gt;
 
@@ -4360,6 +5082,59 @@ Select your household.
 &lt;&lt;type 90ms&gt;&gt;\
 &lt;span class=&quot;typewriter&quot;&gt;3:00 p.m, Greenep&#39;s Tobacco and Sweet Shop.&lt;/span&gt;
 \&lt;&lt;/type&gt;&gt;
+
+&lt;div class=&quot;bike&quot;&gt;
+  &lt;div class=&quot;part frame&quot;&gt;
+    &lt;div class=&quot;bar left-top&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;bar left-bottom&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;bar left&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;bar top&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;bar bottom&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;bar right&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;part saddle&quot;&gt;
+    &lt;div class=&quot;sit-here&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;saddlepen&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;part handlebar&quot;&gt;
+    &lt;div class=&quot;stem&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;connector&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;prehandle&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;handle&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;part pedals&quot;&gt;
+    &lt;div class=&quot;inside&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;outside&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;pedalstem front&quot;&gt;
+      &lt;div class=&quot;pedalbase front&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;pedalstem back&quot;&gt;
+      &lt;div class=&quot;pedalbase back&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;part wheel left&quot;&gt;
+    &lt;div class=&quot;spoke&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;spoke&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;spoke&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;spoke&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;spoke&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;spoke&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;spoke&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;spoke&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;part wheel right&quot;&gt;
+    &lt;div class=&quot;spoke&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;spoke&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;spoke&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;spoke&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;spoke&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;spoke&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;spoke&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;spoke&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;part axis left&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;part axis right&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
 
 &lt;&lt;timed 4.5s&gt;&gt;
     &lt;&lt;audio &quot;bell&quot; volume 0.55 play&gt;&gt;
@@ -4379,10 +5154,13 @@ Select your household.
 &lt;p&gt;More tea is brewing, and someone has made some scones.&lt;/p&gt;
 
 &lt;&lt;next 3s&gt;&gt;
+&lt;img class=&quot;divider&quot; src=&quot;./assets/images/div-05.svg&quot;/&gt;
+
 &lt;p&gt;Use the ACT UP handout to evaluate the additional information that you have now and use the map of the city that is in your household to visualize this information to better see what is happening.&lt;/p&gt;
 
 &lt;p&gt;Be ready to analyze and discuss and share with the other households [[what you know (and don&#39;t know).|SelectHousehold3]]&lt;/p&gt;
 &lt;&lt;/timed&gt;&gt;
+
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="SelectHousehold3" tags="" position="475,350" size="100,100">Select your household.
 
 [[Household 1: The Hendersons|Hendersons3]]
@@ -4396,6 +5174,8 @@ Select your household.
 &lt;p&gt;Now it is time to do a final evaluation and decide on the household plan in the event of another air raid this evening: does everyone stay at home or go to the community air raid shelter in the Cheetham Hill Assembly Rooms [address].&lt;/p&gt;
 
 &lt;&lt;next 3s&gt;&gt;
+&lt;img class=&quot;divider&quot; src=&quot;./assets/images/div-05.svg&quot;/&gt;
+
 &lt;p&gt;Look at your ACT UP handouts:&lt;/p&gt;
 &lt;ul&gt;
     &lt;li&gt;Which information do you believe is real and which is fake?&lt;/li&gt;

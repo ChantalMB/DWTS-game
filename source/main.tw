@@ -21,15 +21,14 @@ Do we take shelter?
 Game design by Martha Attridge Bufton (Carleton University), based on //Making history: The breakup// by Nick Proctor (Simpson College) and adaptation by Aaron Cowan (Slippery Rock University)
 
 Web design by Chantal Brousseau and Alesya Moshchenskaya, Carleton University
-Introduction
 
-----
-
+<img class="divider" src="./assets/images/div-01.svg"/>
 This game is designed to introduce you to the process of evaluating information that includes identifying the formats, characteristics, and purposes of available information as well as matching an information need with an information source. 
 
 You will use this process in a historical scenario that takes you [[back to Manchester, England during the Christmas blitz of 1940.|StartGame]]
 
 :: StartGame
+<<set _vapour to [7, 12, 3, 16, 8, 14, 1, 9, 17, 5, 11, 15, 4, 6, 18, 2, 13, 10, 19]>>
 <<nobr>>
 <<audio "kettle" volume 0 fadeoverto 30 0.75>>
 
@@ -46,6 +45,16 @@ You will use this process in a historical scenario that takes you [[back to Manc
 <<next 5s>>
 <p>Before the next blackout at sunset, you have to try and [[gather more information|BackgroundKnowledge]] about the air raids and the damage that has been done to your city and neighbourhood.</p>
 <</timed>>
+
+<div class="teacup-container">
+    <div class="vapour">
+        <<for _i to 0; _i lt _vapour.length; _i++>>
+            <<set _style to "--i:"+_vapour[_i]+";">>
+            <span @style="_style"></span>
+        <</for>>
+    </div>
+    <img class="teacup" src="./assets/images/teacup-a.svg"/>
+</div>
 <</nobr>>
 
 :: BackgroundKnowledge
@@ -117,8 +126,10 @@ Select your household.
 <<next 7s>>
 <p>While each household may have these basic facts, they each have information that others may not have. Now, those who have returned from work will all share the new information that they have with their household in order to try and build a better understanding of the actual impact of the bombings and the implications of this new information for your ultimate decision.</p>
 
-<<next 5s>>
 <p>More tea has been brewed to accompany your lunch.</p>
+
+<<next 5s>>
+<img class="divider" src="./assets/images/div-05.svg"/>
 
 <p>Use the ACT UP handout to evaluate the additional information that you have now and use the map of the city that is in your household to visualize this information to better see what is happening.</p>
 
@@ -143,6 +154,59 @@ Select your household.
 <span class="typewriter">3:00 p.m, Greenep's Tobacco and Sweet Shop.</span>
 \<</type>>
 
+<div class="bike">
+  <div class="part frame">
+    <div class="bar left-top"></div>
+    <div class="bar left-bottom"></div>
+    <div class="bar left"></div>
+    <div class="bar top"></div>
+    <div class="bar bottom"></div>
+    <div class="bar right"></div>
+  </div>
+  <div class="part saddle">
+    <div class="sit-here"></div>
+    <div class="saddlepen"></div>
+  </div>
+  <div class="part handlebar">
+    <div class="stem"></div>
+    <div class="connector"></div>
+    <div class="prehandle"></div>
+    <div class="handle"></div>
+  </div>
+  <div class="part pedals">
+    <div class="inside"></div>
+    <div class="outside"></div>
+    <div class="pedalstem front">
+      <div class="pedalbase front"></div>
+    </div>
+    <div class="pedalstem back">
+      <div class="pedalbase back"></div>
+    </div>
+  </div>
+  <div class="part wheel left">
+    <div class="spoke"></div>
+    <div class="spoke"></div>
+    <div class="spoke"></div>
+    <div class="spoke"></div>
+    <div class="spoke"></div>
+    <div class="spoke"></div>
+    <div class="spoke"></div>
+    <div class="spoke"></div>
+  </div>
+  <div class="part wheel right">
+    <div class="spoke"></div>
+    <div class="spoke"></div>
+    <div class="spoke"></div>
+    <div class="spoke"></div>
+    <div class="spoke"></div>
+    <div class="spoke"></div>
+    <div class="spoke"></div>
+    <div class="spoke"></div>
+  </div>
+  <div class="part axis left"></div>
+  <div class="part axis right"></div>
+</div>
+
 <<timed 4.5s>>
     <<audio "bell" volume 0.55 play>>
 <</timed>>
@@ -161,10 +225,13 @@ Select your household.
 <p>More tea is brewing, and someone has made some scones.</p>
 
 <<next 3s>>
+<img class="divider" src="./assets/images/div-05.svg"/>
+
 <p>Use the ACT UP handout to evaluate the additional information that you have now and use the map of the city that is in your household to visualize this information to better see what is happening.</p>
 
 <p>Be ready to analyze and discuss and share with the other households [[what you know (and don't know).|SelectHousehold3]]</p>
 <</timed>>
+
 <</nobr>>
 
 :: SelectHousehold3
@@ -185,6 +252,8 @@ Select your household.
 <p>Now it is time to do a final evaluation and decide on the household plan in the event of another air raid this evening: does everyone stay at home or go to the community air raid shelter in the Cheetham Hill Assembly Rooms [address].</p>
 
 <<next 3s>>
+<img class="divider" src="./assets/images/div-05.svg"/>
+
 <p>Look at your ACT UP handouts:</p>
 <ul>
     <li>Which information do you believe is real and which is fake?</li>

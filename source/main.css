@@ -19,22 +19,11 @@ a:hover {
   color: #ebe2d4;
 }
 
-@keyframes glow {
-  from {
-    text-shadow: 0 0 10px #fff;
-  }
-  to {
-    text-shadow: 0 0 15px #fff;
-  }
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0%;
-  }
-  100% {
-    opacity: 100%;
-  }
+.divider {
+  width: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #ui-bar {
@@ -47,12 +36,436 @@ a:hover {
 
 .typewriter {
   font-family: 'Courier Prime', monospace;
+  font-size: 1.5em;
 }
 
 .fade-text {
   animation-name: fadeIn;
   animation-duration: 1s;
 }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+/* teacup animation */
+
+.teacup-container {
+  position: fixed;
+  bottom: 15px;
+  left: 7vw;
+
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.teacup {
+  z-index: 5;
+  color: antiquewhite;
+  width: 275px;
+  grid-area: 1 / 1 / 6 / 6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.vapour {
+  z-index: 1;
+  grid-area: 1 / 1 / 6 / 6;
+  display: flex;
+  align-items: center;
+  padding-left: 61px;
+}
+
+.vapour span {
+  display: block;
+  position: relative;
+  margin: 0 2px 50px;
+  bottom: 25px;
+  height: 120px;
+  min-width: 3.5px;
+  background: whitesmoke;
+  border-radius: 50%;
+
+  animation: vapour 5s linear infinite;
+  animation-delay: calc(var(--i) * -0.5s);
+  opacity: 0;
+  filter: blur(9px);
+}
+
+@keyframes vapour {
+  0% {
+    transform: translateY(0) scaleX(1);
+    opacity: 0;
+  } 15% {
+    opacity: 0.5;
+  } 50% {
+    transform: translateY(-150px) scaleX(5);
+  } 95% {
+    opacity: 0;
+  } 100% {
+    transform: translateY(-300px) scaleX(10);
+  }
+}
+
+/* bike animation adapted from: https://codepen.io/lucawater/pen/VwQVyj */
+
+@keyframes wheelspin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes floor {
+  to {
+    background-position-x: 100%;
+  }
+}
+
+@keyframes pedalstem-front {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pedalstem-back {
+  from {
+    transform: rotate(-180deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes pedalbase-front {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes pedalbase-back {
+  from {
+    transform: rotate(180deg);
+  }
+  to {
+    transform: rotate(-180deg);
+  }
+}
+
+@keyframes riding {
+  from {
+    transform: translateX(-250%);
+  }
+  to {
+    transform: translateX(250%);
+    display: none;
+  }
+}
+
+.bike {
+  width: 600px;
+  height: 400px;
+  margin: auto;
+  margin-top: 368px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  
+  animation-name: riding;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.bike .part {
+  position: absolute;
+}
+
+.frame .bar {
+  width: 12px;
+  position: absolute;
+  background: rgb(177, 53, 53);
+}
+.frame .bar.left-top {
+  width: 10px;
+  height: 186px;
+  margin-left: 128px;
+  margin-top: 110px;
+  transform: rotate(37deg);
+}
+.frame .bar.left-bottom {
+  width: 8px;
+  margin-left: 149px;
+  margin-top: 203px;
+  height: 170px;
+  transform: rotate(-82deg);
+}
+.frame .bar.left {
+  height: 230px;
+  margin-left: 200px;
+  margin-top: 80px;
+  transform: rotate(-15deg);
+}
+.frame .bar.top {
+  height: 224px;
+  margin-left: 282px;
+  margin-top: -10px;
+  transform: rotate(90deg);
+}
+.frame .bar.bottom {
+  margin-left: 317px;
+  margin-top: 87px;
+  height: 250px;
+  transform: rotate(45deg);
+}
+.frame .bar.right {
+  height: 230px;
+  margin-left: 421px;
+  margin-top: 60px;
+  transform: rotate(-19deg);
+}
+
+.saddle {
+  margin-left: 184px;
+}
+.saddle .sit-here {
+  height: 0;
+  width: 10px;
+  position: absolute;
+  border-bottom: 110px solid #3a2317;
+  border-left: 0px solid transparent;
+  border-right: 22px solid transparent;
+  border-radius: 10px 0 10px 0;
+  margin-top: -20px;
+  margin-left: -35px;
+  transform: rotate(98deg);
+}
+.saddle .saddlepen {
+  width: 10px;
+  height: 200px;
+  margin-top: 30px;
+  position: absolute;
+  background: #f4decb;
+  transform: rotate(-16deg);
+}
+
+.wheel {
+  width: 200px;
+  height: 200px;
+  margin-top: 160px;
+  border-radius: 100%;
+  border: 15px solid #f4decb;
+  box-shadow: 0 0 0 10px #a87e62;
+  animation-name: wheelspin;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.wheel.left {
+  margin-left: -35px;
+}
+.wheel.right {
+  margin-left: 348px;
+}
+.wheel .spoke {
+  width: 2px;
+  height: 200px;
+  margin-left: 98px;
+  position: absolute;
+  background: #f4decb;
+}
+.wheel .spoke:nth-child(2) {
+  transform: rotate(30deg);
+}
+.wheel .spoke:nth-child(3) {
+  transform: rotate(60deg);
+}
+.wheel .spoke:nth-child(4) {
+  transform: rotate(90deg);
+}
+.wheel .spoke:nth-child(5) {
+  transform: rotate(120deg);
+}
+.wheel .spoke:nth-child(6) {
+  transform: rotate(150deg);
+}
+.wheel .spoke:nth-child(7) {
+  transform: rotate(180deg);
+}
+.wheel .spoke:nth-child(8) {
+  transform: rotate(210deg);
+}
+
+.axis {
+  width: 25px;
+  height: 25px;
+  margin-top: 265px;
+  position: absolute;
+  background: #a87e62;
+  border-radius: 100%;
+}
+.axis.left {
+  margin-left: 67px;
+}
+.axis.right {
+  margin-left: 451px;
+}
+
+.handlebar .stem {
+  width: 10px;
+  height: 200px;
+  margin-top: 45px;
+  margin-left: 412px;
+  position: absolute;
+  background: #f4decb;
+  transform: rotate(-19deg);
+}
+.handlebar .connector {
+  width: 20px;
+  height: 20px;
+  margin-left: 374px;
+  margin-top: 40px;
+  transform: rotate(-19deg);
+  background: #f4decb;
+}
+.handlebar .prehandle {
+  width: 15px;
+  height: 40px;
+  margin-left: 394px;
+  margin-top: -45px;
+  transform: rotate(42deg);
+  background: #f4decb;
+}
+.handlebar .handle {
+  width: 25px;
+  height: 25px;
+  margin-left: 400px;
+  margin-top: -45px;
+  position: absolute;
+  background: #3a2317;
+  border-radius: 100%;
+}
+
+.pedals {
+  margin-left: 227px;
+  margin-top: 295px;
+}
+.pedals * {
+  position: absolute;
+}
+.pedals .inside {
+  width: 9px;
+  height: 9px;
+  background: #a87e62;
+  border-radius: 100%;
+  margin-left: 3.5px;
+  margin-top: 2.4px;
+}
+.pedals .outside {
+  width: 80px;
+  height: 80px;
+  margin-top: -39px;
+  margin-left: -37px;
+  border: 5px solid #3a2317;
+  border-radius: 100%;
+}
+.pedals .pedalstem {
+  width: 12px;
+  height: 80px;
+  margin-left: 2px;
+  background: #f4decb;
+  border-radius: 10px 10px 0 0;
+  transform-origin: 6px 7px;
+}
+.pedals .pedalstem.front {
+  animation-name: pedalstem-front;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.pedals .pedalstem.back {
+  animation-name: pedalstem-back;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  transform: rotate(180deg);
+}
+.pedals .pedalbase {
+  width: 40px;
+  height: 15px;
+  margin-top: 70px;
+  margin-left: -12px;
+  background: #3a2317;
+}
+.pedals .pedalbase.front {
+  animation-name: pedalbase-front;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.pedals .pedalbase.back {
+  animation-name: pedalbase-back;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.inside {
+  z-index: 6;
+}
+
+.axis {
+  z-index: 5;
+}
+
+.pedalstem.front {
+  z-index: 5;
+}
+
+.frame {
+  z-index: 4;
+}
+
+.outside {
+  z-index: 4;
+}
+
+.handlebar {
+  z-index: 3;
+}
+
+.sit-here {
+  z-index: 2;
+}
+
+.wheel {
+  z-index: 1;
+}
+
+.pedalstem.back {
+  z-index: -1;
+}
+
+/* fire animation */
 
 .pulsating-light {
   width: 1300px;
@@ -65,6 +478,16 @@ a:hover {
   border-radius: 50%;
   background: orangered;
   animation: pulsinglight 5s linear infinite alternate;
+}
+
+/* fire particle/glow effect */
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff;
+  }
+  to {
+    text-shadow: 0 0 15px #fff;
+  }
 }
 
 
@@ -80,9 +503,7 @@ a:hover {
   100% {box-shadow: 80px 150px 190px 120px orangered;} 
 }
 
-
-
-/* Adapted from CSS Particle Animation by Takeshi Kano: https://codepen.io/tonkotsuboy/pen/xaMVpo */
+/* adapted from CSS Particle Animation by Takeshi Kano: https://codepen.io/tonkotsuboy/pen/xaMVpo */
 .circle-container {
   position: absolute;
   transform: translateY(-10vh);
@@ -1563,7 +1984,7 @@ a:hover {
   width: 1px;
   height: 1px;
   animation-name: move-frames-81;
-  animation-duration: 33340ms;
+  animation-duration: a87e6240ms;
   animation-delay: 9905ms;
 }
 @keyframes move-frames-81 {
@@ -2115,7 +2536,7 @@ a:hover {
   }
 }
 .circle-container:nth-child(111) .circle {
-  animation-delay: 3334ms;
+  animation-delay: a87e624ms;
 }
 .circle-container:nth-child(112) {
   width: 6px;
