@@ -2,26 +2,25 @@
 
 <<nobr>>
 <p class="fade-text">
-''Rita Maloney:'' You are the moderator for your household. Open your household locker in Brightspace so that you can guide the household in its initial discussion of the information you have about the war with Germany.
-</p>
+''Rita Maloney:'' You are the moderator for your household and will guide the household in its initial discussion of the information you have about the war with Germany.</p>
 
 <<timed 3s t8n>>
-<p>Thomas, Hilda, Rita, Elaine, and Emma: Together, you need to answer the following questions:</p>
+<p>Thomas, Hilda, Rita, Elaine, and Emma-- answer the following questions:</p>
 <ul>
     <li>Will there be another bombardment and, if so, when?</li>
-    <li>Should we move back to the community air raid shelter or stay in our own homes another night?</li>
+    <li>Should you move back to the community air raid shelter or stay in our own homes another night?</li>
 </ul>
 
 <<next 2s>>
-<p>To answer these questions, you must evaluate the information you currently have about the war and determine if it is:</p>
+<p>To answer these questions, evaluate the information you have about the war and determine if it is:</p>
 <ul>
-    <li>current (which includes relevant)</li>
-    <li>authoritative</li>
-    <li>truthful (which includes being accurate)</li>
+    <li>Current (which includes relevant)</li>
+    <li>Authoritative</li>
+    <li>Truthful (which includes being accurate)</li>
 </ul>
 
 <<next 2s>>
-<p>You must also assess the bias that this information might reflect, and you will need to identify any additional information you might need and be able to gather such as:</p>
+<p>Also, assess the bias that this information might reflect and identify any additional information you might need and be able to gather such as:</p>
 <ul>
     <li>What is the Luftwaffe strategy for bombing English cities?</li>
     <li>How many British people have been injured or died so far during the war?</li>
@@ -29,10 +28,14 @@
 </ul>
 
 <<next 2s>>
-<p>Use the ACT UP handout to evaluate the information that you have. Be ready to share your evaluation with the other households [[after your kitchen table discussion.|LunchtimeReports]]</p>
+<p>What do you do next?</p>
 
+<<next 2s>>
+<p>Use the ACT UP handout to evaluate the information that you have.</p>
+
+<<next 2s>>
 <<set _seconds to 900>>
-<b>Countdown</b> <span id="countdown">15:00 remaining</span>!
+<span id="countdown"><b>Countdown</b>&nbsp;15:00 remaining!</span>
 <<silently>>
 	<<repeat 1s>>
 		<<set _seconds to _seconds - 1>>
@@ -42,29 +45,29 @@
             <<if String(_sec).length lt 2>>
                 <<set _sec to "0" + String(_sec) >>
             <</if>>
-			<<replace "#countdown">>_min:_sec remaining<</replace>>
+			<<replace "#countdown">><b>Countdown</b>&nbsp;_min:_sec remaining!<</replace>>
 		<<else>>
-			<<replace "#countdown">>Too Late<</replace>>
-			/* do something useful here */
+			<<replace "#countdown">>Times up!<</replace>>
 			<<stop>>
 		<</if>>
 	<</repeat>>
 <</silently>>
+
+<<next 901s>>
+<p>Now, share your evaluation with the other households [[after your kitchen table discussion.|LunchtimeReports]]</p>
+
 <</timed>>
 <</nobr>>
 
 :: Empeys2
-
 <<nobr>>
-<p class="fade-text">''Rita Maloney:'' You are the moderator for your household. Open your household locker in Brightspace so that you can guide the household in its initial discussion of the information you have about the war with Germany.</p>
+<p class="fade-text">''Rita Maloney:'' You are the moderator for your household. Use the new information that your household has to guide the conversation.</p>
 
 <<timed 3s t8n>>
-<p>Thomas, Hilda, Rita, Elaine, and Emma: Together, you need to evaluate the new information that you have, using the ACT UP handout and your household map.</p>
+<p>Thomas, Hilda, Rita, Elaine, and Emma: Evaluate the new information that you have to build your understanding of the impact and implications of the most recent bombings.</p>
 
 <<next 2s>>
-<p>Continue to build your understanding of the impact and implications of the most recent bombings. This time, use the household map to visualize some of the new information that you now have.</p>
-
-<p>Remember, you are still trying to determine the facts that you have about what has just happened in your city:</p>
+<p>Remember, you must determine the facts about what has just happened in your city:</p>
 
 <ul>
     <li>What do we now know?</li>
@@ -80,10 +83,15 @@
     <li>Do you need more information? If so, what information do you need?</li>
 </ul>
 
-<p>Be ready to [[share your evaluation with the other households.|Greenep]]</p>
+<<next 2s>>
+<p>What do you do next?</p>
 
+<<next 2s>>
+<p>Use the ACT UP handout to evaluate the additional information you have.  </p>
+
+<<next 2s>>
 <<set _seconds to 900>>
-<b>Countdown</b> <span id="countdown">15:00 remaining</span>!
+<span id="countdown"><b>Countdown</b>&nbsp;15:00 remaining!</span>
 <<silently>>
 	<<repeat 1s>>
 		<<set _seconds to _seconds - 1>>
@@ -93,43 +101,41 @@
             <<if String(_sec).length lt 2>>
                 <<set _sec to "0" + String(_sec) >>
             <</if>>
-			<<replace "#countdown">>_min:_sec remaining<</replace>>
+			<<replace "#countdown">><b>Countdown</b>&nbsp;_min:_sec remaining!<</replace>>
 		<<else>>
-			<<replace "#countdown">>Too Late<</replace>>
-			/* do something useful here */
+			<<replace "#countdown">>Times up!<</replace>>
 			<<stop>>
 		<</if>>
 	<</repeat>>
 <</silently>>
+
+<<next 901s>>
+<p>[[Share your evaluation with the other households.|Greenep]]</p>
+
 <</timed>>
 <</nobr>>
 
 :: Empeys3
 
 <<nobr>>
-<p class="fade-text">''Rita Maloney:'' You are the moderator for your household. Open your household locker in Brightspace so that you can guide the household in its discussion of the information now have.</p>
+<p class="fade-text">''Rita Maloney:'' You are the moderator for your household. Use the new information you have to guide the conversation.</p>
 
 <<timed 3s t8n>>
-<p>Thomas, Hilda, Rita, Elaine, and Emma: Together, you need to evaluate the new information that you have, using the ACT UP handout and your household map.</p>
+<p>Thomas, Hilda, Rita, Elaine, and Emma: Evaluate the new information that you have.</p>
 
-<p>Continue to build your understanding of the impact and implications of the most recent bombings. This time, use the household map to visualize some of the new information that you now have.</p>
-
-<<next 3s>>
-<p>Now, you have to evaluate the facts that you have gathered along with any anecdotes, rumours, and propaganda that you might now have gathered.</p> 
+<<next 2s>>
+<p>Use the ACT UP handout to evaluate the facts that you have gathered alongside any anecdotes, rumours, and propaganda that you now know.</p> 
 
 <<next 2s>>
 <p>In addition to the questions on the ACT UP handout, consider:</p>
-
 <ul>
     <li>Timelines: can you create a chronology of events or not and compare it to the chronology of other raids?</li>
     <li>Is there any information that you think you need to discard? Why?</li>
 </ul>
 
 <<next 3s>>
-<p>Be ready to [[share your evaluation with the other households.|FinalDecisions]]</p>
-
 <<set _seconds to 900>>
-<b>Countdown</b> <span id="countdown">15:00 remaining</span>!
+<span id="countdown"><b>Countdown</b>&nbsp;15:00 remaining!</span>
 <<silently>>
 	<<repeat 1s>>
 		<<set _seconds to _seconds - 1>>
@@ -139,13 +145,16 @@
             <<if String(_sec).length lt 2>>
                 <<set _sec to "0" + String(_sec) >>
             <</if>>
-			<<replace "#countdown">>_min:_sec remaining<</replace>>
+			<<replace "#countdown">><b>Countdown</b>&nbsp;_min:_sec remaining!<</replace>>
 		<<else>>
-			<<replace "#countdown">>Too Late<</replace>>
-			/* do something useful here */
+			<<replace "#countdown">>Times up!<</replace>>
 			<<stop>>
 		<</if>>
 	<</repeat>>
 <</silently>>
+
+<<next 901s>>
+<p>Now go and [[share this evaluation with the other households.|FinalDecisions]]</p>
+
 <</timed>>
 <</nobr>>

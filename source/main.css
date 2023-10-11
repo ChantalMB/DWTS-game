@@ -26,6 +26,11 @@ a:hover {
   margin-right: auto;
 }
 
+#countdown {
+  display: flex;
+  justify-content: center;
+}
+
 #ui-bar {
   background-color: #191a2c;
 }
@@ -50,6 +55,18 @@ a:hover {
   }
   100% {
     opacity: 100%;
+  }
+}
+
+@media screen and (min-width: 2500px) {
+  html {
+    font-size: 0.75vw;
+  }
+}
+
+@media screen and (min-width: 3000px) {
+  html {
+    font-size: 1vw;
   }
 }
 
