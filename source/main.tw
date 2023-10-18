@@ -7,25 +7,42 @@
 }
 
 :: StoryInit
+<<cacheaudio "game-theme" "./assets/audio/game-theme.mp3">>
+<<cacheaudio "opening-message" "./assets/audio/opening-message.mp3">>
+<<cacheaudio "pigeon12" "./assets/audio/pigeon12.mp3">>
+<<cacheaudio "pigeon34" "./assets/audio/pigeon34.mp3">>
 <<cacheaudio "kettle" "./assets/audio/kettle.mp3">>
 <<cacheaudio "fire" "./assets/audio/fire.mp3">>
-<<cacheaudio "bell" "./assets/audio/shop-bell.mp3">>
+<<cacheaudio "shop-bell" "./assets/audio/shop-bell.mp3">>
+<<cacheaudio "church-bell" "./assets/audio/church-bell.mp3">>
+<<cacheaudio "bicycle-bell" "./assets/audio/bicycle-bell.mp3">>
+<<cacheaudio "motor-car" "./assets/audio/motor-car.mp3">>
+<<cacheaudio "streetcar-station" "./assets/audio/streetcar-station.mp3">>
+<<cacheaudio "pigeon-coo" "./assets/audio/pigeon-coo.mp3">>
+
+
 
 :: StoryTitle
 Do we take shelter?
 
 :: Start
+
+<div class="game-title" style="margin-bottom: 55px;">
 !Do we take shelter? 
 !!//Evaluating “high stakes” information//
+</div>
 
-Game design by Martha Attridge Bufton (Carleton University), based on //Making history: The breakup// by Nick Proctor (Simpson College) and adaptation by Aaron Cowan (Slippery Rock University)
+<div class="ham-radio">
+    <img class="radio-knob" src="./assets/images/radio-knob.png" onclick="$('.radio-knob').addClass('radio-on'); $('.opening-link').removeClass('hidden-link'); document.getElementById('opening').play();">
+    <div class="backlight"></div>
+    <audio id="opening" src="./assets/audio/opening-message.mp3"></audio>
 
-Web design by Chantal Brousseau and Alesya Moshchenskaya, Carleton University
+    <img class="radio-base" src="./assets/images/radio-base.png">
+</div>
 
-<img class="divider" src="./assets/images/div-01.svg"/>
-This game is designed to introduce you to the process of evaluating information that includes identifying the formats, characteristics, and purposes of available information as well as matching an information need with an information source. 
-
-You will use this process in a historical scenario that takes you [[back to Manchester, England during the Christmas blitz of 1940.|StartGame]]
+<div class="fade-text opening-link hidden-link">
+[[Proceed to Manchester, England during the Christmas blitz of 1940.|StartGame]]
+</div>
 
 :: StartGame
 <<set _vapour to [7, 12, 3, 16, 8, 14, 1, 9, 17, 5, 11, 15, 4, 6, 18, 2, 13, 10, 19]>>
@@ -60,18 +77,18 @@ You will use this process in a historical scenario that takes you [[back to Manc
 :: BackgroundKnowledge
 <<audio "kettle" volume 0.75 fadeout>>
 <<nobr>>
-<p class="fade-text">In addition to the background knowledge you have about the war, you also know the following:</p>
+<p class="fade-text">You have background knowledge of the war and also know that:</p>
 <ul>
     <<timed 3s t8n>>
     <li>At 6:38 p.m. on Sunday, December 22, the air raid sirens rang out.</li>
     <<next>>
-    <li>The German air force (Luftwaffe) seemed to drop their bombs in “waves and waves”–in ones and twos–and sometimes a dozen at a time.</li>
+    <li>The German air force dropped their bombs in “waves and waves”, sometimes a dozen at a time.</li>
     <<next>>
     <li>The bombs targeted central Manchester, including Manchester Cathedral, only 2.5 kilometres south of your home.</li>
     <<next>>
     <li>You can smell smoke and the sky is lit up from the fires burning in the city.</li>
     <<next>>
-    <li>The Manchester fire brigade is depleted because many men and trucks were sent to Liverpool the day before. That city was hit by a similar wave of bombings on December 20 and 21.</li>
+    <li>The Manchester fire brigade is depleted because many men and trucks were sent to Liverpool the day before when the bombs fell on that city.</li>
     <</timed>>
 </ul>
 
@@ -84,7 +101,7 @@ You will use this process in a historical scenario that takes you [[back to Manc
 <</nobr>>
 
 :: SelectHousehold1
-
+<h1 class="fade-text" style="text-align:center;">Round 1</h1>
 Select your household.
 
 [[Household 1: The Hendersons|Hendersons1]]
@@ -92,6 +109,8 @@ Select your household.
 [[Household 3: The Engels|Engels1]]
 [[Household 4: The Sklars|Sklars1]]
 [[Household 5: The Baileys|Baileys1]]
+
+[[Community Members|Community1]]
 
 :: LunchtimeReports
 <<nobr>>
@@ -113,12 +132,16 @@ Select your household.
 <span class="typewriter">1:00 p.m. on Monday, December 22, 1940.</span>
 \<</type>>
 
+<<timed 3.5s>>
+    <<audio "church-bell" volume 0.55 play>>
+<</timed>>
+
 <<timed 5s t8n>>
 <p>Some household members have gone to their workplaces to gather more information and check in on their fellow employees.</p>
 
 <p>Work is virtually impossible and so they have returned home for lunch. </p>
 
-<p>Overall, everyone knows (or suspects) that Central Manchester is devastated–the Luftwaffe bombing raid has destroyed buildings, roads, and transportation infrastructure including railway lines.</p>
+<p>Overall, everyone knows (or suspects) that Central Manchester is devastated– the Luftwaffe bombing raid has destroyed buildings, roads, and transportation infrastructure including railway lines.</p>
 
 <<next 2s>>
 <p>And everywhere, there is @@color:orange;fire, fire, fire.@@</p>
@@ -126,7 +149,7 @@ Select your household.
 <<next 7s>>
 <p>While each household may have these basic facts, they also have information that others may not have.</p>
 
-<p>Those who have returned from work will share the new information they have with their household to try and build a better understanding of the actual impact of the bombings and the implications of this new information for the ultimate decision.</p>
+<p>Those who have returned from work will give their eyewitness account of what they have seen and heard. Use this information to build a better understanding of the actual impact of the bombings and the implications of this new information for the ultimate decision.</p>
 
 <<next 5s>>
 
@@ -137,7 +160,7 @@ Select your household.
 
 :: SelectHousehold2
 <<audio "fire" volume 0.75 fadeout>>
-
+<h1 class="fade-text" style="text-align:center;">Round 1</h1>
 Select your household.
 
 [[Household 1: The Hendersons|Hendersons2]]
@@ -145,6 +168,8 @@ Select your household.
 [[Household 3: The Engels|Engels2]]
 [[Household 4: The Sklars|Sklars2]]
 [[Household 5: The Baileys|Baileys2]]
+
+[[Community Members|Community2]]
 
 :: Greenep
 <<nobr>>
@@ -206,7 +231,7 @@ Select your household.
 </div>
 
 <<timed 4.5s>>
-    <<audio "bell" volume 0.55 play>>
+    <<audio "shop-bell" volume 0.55 play>>
 <</timed>>
 
 <<timed 5s t8n>>
@@ -224,7 +249,7 @@ Select your household.
 <</nobr>>
 
 :: SelectHousehold3
-
+<h1 class="fade-text" style="text-align:center;">Round 1</h1>
 Select your household.
 
 [[Household 1: The Hendersons|Hendersons3]]
@@ -233,9 +258,11 @@ Select your household.
 [[Household 4: The Sklars|Sklars3]]
 [[Household 5: The Baileys|Baileys3]]
 
+[[Community Members|Community3]]
+
 :: FinalDecisions
 <<nobr>>
-<p class="fade-text">Each household has gathered all the information it can about last night’s air raid.</p>
+<p class="fade-text">The households and community members have gathered all the information it can about last night’s air raid.</p>
 
 <<timed 3s t8n>>
 <p>Now it is time to do a final evaluation and decide on the household plan in the event of another air raid this evening: does everyone stay at home or go to the community air raid shelter in the Cheetham Hill Assembly Rooms at 111 Cheetham Hill Rd.</p>
@@ -254,22 +281,24 @@ Select your household.
 </ul>
 
 <<next 2s>>
-<p>Once you’ve done your final household evaluation, make your final decision. Be prepared to [[share your decision with the other households.|FinalPage]]</p>
+<p>Once you’ve done your final household evaluation, make your final decision. Be prepared to [[share your decision with the other households.|FinalCredits]]</p>
 <</timed>>
 <</nobr>>
 
-:: FinalPage
-
-Audio track: The war is over. Ernie Fletcher and Sheila Bailey
-
-[[Game credits|FinalCredits]]
-
 :: FinalCredits
+<<nobr>>
+<<audio "game-theme" volume 0 fadeoverto 7 0.75>>
 
-<p>Game design by Martha Attridge Bufton (Carleton University), based on Making history: The breakup by Nick Proctor (Simpson College) and adaptation by Aaron Cowan(Slippery Rock University)</p>
+<div class="fade-text">
+    <h1>Credits</h1>
 
-<p>Web design by Chantal Brousseau and Alesya Moshchenskaya, Carleton University.</p>
+    <p>Game design by Martha Attridge Bufton (Carleton University), based on //Making history: The breakup// by Nick Proctor (Simpson College) and adaptation by Aaron Cowan (Slippery Rock University)</p>
 
-<p>Music by Diego Guzman.</p>
+    <p>Web design by Chantal Brousseau and Alesya Moshchenskaya, Carleton University.</p>
 
-<p>Voice work by Sean Bufton and Linnet Whiston.</p>
+    <p>Music by Diego Guzman.</p>
+
+    <p>Voice work by Sean Bufton and Linnet Whiston.</p>
+</div>
+
+<</nobr>>

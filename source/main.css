@@ -19,11 +19,127 @@ a:hover {
   color: #ebe2d4;
 }
 
+.game-title {
+  text-align: center;
+}
+
 .divider {
   width: 50%;
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.ham-radio {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.radio-knob {
+  position: relative;
+  /* height: 15vmin; */
+  width: 8.9vmin;
+  
+  top: -12.1vmin;
+  left: 41.9vmin;
+  z-index: 3;
+}
+
+.backlight {
+  position: relative;
+  height: 5vmin;
+  width: 5vmin;
+  border-radius: 50%;
+  
+  top: -12.3vmin;
+  left: 35vmin;
+  z-index: 2;
+  animation: glow-image 1s ease-in-out infinite alternate;
+}
+
+
+.radio-on {
+  transform: rotate(50deg);
+}
+
+.radio-base {
+  position: relative;
+  /* height: 50vmin; */
+  width: 69vmin;
+  
+  top: -8.7vmin;
+  left: -6vmin;
+  z-index: 1;
+}
+
+.pigeon {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pigeon-note {
+  position: relative;
+  /* height: 15vmin; */
+  width: 8.7vmin;
+  
+  top: 27vmin;
+  left: 57vmin;
+  z-index: 3;
+}
+
+.backlight-pigeon {
+  position: relative;
+  height: 5vmin;
+  width: 5vmin;
+  border-radius: 50%;
+  
+  top: 27vmin;
+  left: 53vmin;
+  z-index: 2;
+  transform: rotate(-35deg);
+
+  animation: glow-image 1s ease-in-out infinite alternate;
+}
+
+.pigeon-base {
+  position: relative;
+  /* height: 50vmin; */
+  width: 105vmin;
+  
+  top: -3vmin;
+  left: -5vmin;
+  z-index: 1;
+}
+
+@keyframes glow-image {
+  from {
+    box-shadow: 0 0 30px 15px greenyellow;
+  }
+  to {
+    box-shadow: 0 0 30px 25px greenyellow;
+  }
+}
+
+.opening-link {
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  bottom: 125px;
+  transform: translate(-50%, 0);
+}
+
+.hidden-link {
+  display: none;
 }
 
 #countdown {

@@ -1,25 +1,16 @@
 :: Baileys1
-
 <<nobr>>
-<p class="fade-text">''Robert Bailey Junior:'' You are the moderator for your household and will guide the household in its initial discussion of the information you have about the war with Germany.</p>
 
-<<timed 3s t8n>>
-<p>Martha, Robert Junior, Stephen, Mary, Adam, and Sheila-- answer the following questions:</p>
+<p class="fade-text">Based on the information you have, answer the following questions:</p>
+
+<<timed 2s t8n>>
 <ul>
     <li>Will there be another bombardment and, if so, when?</li>
-    <li>Should you move back to the community air raid shelter or stay in our own homes another night?</li>
+    <li>Should we move back to the community air raid shelter or stay in our own homes another night?</li>
 </ul>
 
 <<next 2s>>
-<p>To answer these questions, evaluate the information you have about the war and determine if it is:</p>
-<ul>
-    <li>Current (which includes relevant)</li>
-    <li>Authoritative</li>
-    <li>Truthful (which includes being accurate)</li>
-</ul>
-
-<<next 2s>>
-<p>Also, assess the bias that this information might reflect and identify any additional information you might need and be able to gather such as:</p>
+<p>Assess the bias that this information might reflect. Identify any additional information you might need and be able to gather such as:</p>
 <ul>
     <li>What is the Luftwaffe strategy for bombing English cities?</li>
     <li>How many British people have been injured or died so far during the war?</li>
@@ -33,8 +24,8 @@
 <p>Use the ACT UP handout to evaluate the information that you have.</p>
 
 <<next 2s>>
-<<set _seconds to 900>>
-<span id="countdown"><b>Countdown</b>&nbsp;15:00 remaining!</span>
+<<set _seconds to 1500>>
+<span id="countdown"><b>Countdown</b>&nbsp;25:00 remaining!</span>
 <<silently>>
 	<<repeat 1s>>
 		<<set _seconds to _seconds - 1>>
@@ -52,7 +43,7 @@
 	<</repeat>>
 <</silently>>
 
-<<next 901s>>
+<<next 1501s>>
 <p>Now, share your evaluation with the other households [[after your kitchen table discussion.|LunchtimeReports]]</p>
 
 <</timed>>
@@ -60,15 +51,15 @@
 
 :: Baileys2
 <<nobr>>
-<p class="fade-text">''Robert Bailey Junior:'' You are the moderator for your household. Use the new information that your household has to guide the conversation.</p>
+<<audio "bicycle-bell" play>>
+
+<p class="fade-text">''Robert Bailey Junior:'' Make sure everyone [[listens to the secret message from Ernie to Sheila. They now communicate via their homing pigeons Commando 1 and 2 and Princesses 1 and 2.|Pigeons1]]</p>
 
 <<timed 3s t8n>>
-<b>Make sure everyone listens to this secret message from Ernie to Sheila. They now communicate via their homing pigeon Commando.</b> 
-
-<p>Martha, Robert Junior, Stephen, Mary, Adam, and Sheila: Evaluate the new information that you have to build your understanding of the impact and implications of the most recent bombings.</p>
+<p>Evaluate the new information that you have to build your understanding of the impact and implications of the most recent bombings.</p>
 
 <<next 2s>>
-<p>Remember, you must determine the facts about what has just happened in your city:</p>
+<p>You must determine the facts about what has just happened in your city:</p>
 
 <ul>
     <li>What do we now know?</li>
@@ -91,8 +82,8 @@
 <p>Use the ACT UP handout to evaluate the additional information you have.  </p>
 
 <<next 2s>>
-<<set _seconds to 900>>
-<span id="countdown"><b>Countdown</b>&nbsp;15:00 remaining!</span>
+<<set _seconds to 1200>>
+<span id="countdown"><b>Countdown</b>&nbsp;20:00 remaining!</span>
 <<silently>>
 	<<repeat 1s>>
 		<<set _seconds to _seconds - 1>>
@@ -110,21 +101,26 @@
 	<</repeat>>
 <</silently>>
 
-<<next 901s>>
+<<next 1200s>>
 <p>[[Share your evaluation with the other households.|Greenep]]</p>
 
 <</timed>>
 <</nobr>>
 
 :: Baileys3
-
 <<nobr>>
-<p class="fade-text">''Robert Bailey Junior:'' You are the moderator for your household. Use the new information you have to guide the conversation.</p>
+<<audio "shop-bell" volume 0.55 play>>
+
+<p class="fade-text">''Robert Bailey Junior:'' Make sure everyone listens to [[the secret message from Ernie to Sheila.|Pigeons2]] This is another message shared via their homing pigeon Commando.</p>
 
 <<timed 3s t8n>>
-<b>Make sure everyone listens to the secret message from Ernie to Sheila. There is another message shared via their homing pigeon Commando.</b>
+<p>Evaluate the new information that you have.</p>
 
-<p>Martha, Robert Junior, Stephen, Mary, Adam, and Sheila: Evaluate the new information that you have.</p>
+<<next 2s>>
+<p>This information includes <a href="https://archive.org/details/camphutchinsonin1211hutc/mode/1up?view=theater" target="_blank">this copy of the December 20, 1940 issue of The Camp</a>, the official journal of internees at The Hutchison Camp which is an internment camp on the Isle of Wight.</p>
+
+<<next 2s>>
+Open this document: Evaluate the information on page 1 and the article //Science marches// on on page 3.
 
 <<next 2s>>
 <p>Use the ACT UP handout to evaluate the facts that you have gathered alongside any anecdotes, rumours, and propaganda that you now know.</p> 
@@ -137,8 +133,8 @@
 </ul>
 
 <<next 3s>>
-<<set _seconds to 900>>
-<span id="countdown"><b>Countdown</b>&nbsp;15:00 remaining!</span>
+<<set _seconds to 1500>>
+<span id="countdown"><b>Countdown</b>&nbsp;25:00 remaining!</span>
 <<silently>>
 	<<repeat 1s>>
 		<<set _seconds to _seconds - 1>>
@@ -156,7 +152,7 @@
 	<</repeat>>
 <</silently>>
 
-<<next 901s>>
+<<next 1501s>>
 <p>Now go and [[share this evaluation with the other households.|FinalDecisions]]</p>
 
 <</timed>>
